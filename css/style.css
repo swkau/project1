@@ -52,21 +52,21 @@ button {
 }
 
 .p1 {
-	background: url("../image/button1.png");
+	background-image: url("../image/button1.png");
 	background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .p2 {
-	background: url("../image/button2.png");
+	background-image: url("../image/button2.png");
 	background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .p12 {
-	background: url("../image/buttoncombi.png");
+	background-image: url("../image/buttoncombi.png");
 	background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;

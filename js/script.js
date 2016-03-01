@@ -33,26 +33,50 @@ function rollDice(){
 function calculate(result){
     var oldposition = position[(pTurn-1)];
     position[(pTurn-1)] = position[(pTurn-1)] + result[0];
+    if(position[(pTurn-1)]>100) { position[(pTurn-1)] = 100; }
     move(oldposition);
 }
 
 function move(oldposition, activityType) {
-    if(position[(pTurn-1)]>100) { position[(pTurn-1)] = 100; }
     $('#p'+pTurn+'position').text("player " + pTurn + " position: " + position[(pTurn-1)]);
-    $('#'+oldposition).removeClass("p"+pTurn+" p12");
+    if(direction(oldposition)=="right"){
+    $('#'+oldposition).delay(1000).animate({'background-position-x': '+=550%'}, 2000);
+    }
+    else if(direction(oldposition)=="left"){
+    $('#'+oldposition).delay(1000).animate({'background-position-x': '-=550%'}, 2000);
+    }
+    //$('#'+oldposition).delay(7000).removeClass("p"+pTurn+" p12");
     if(position[0]===position[1]) { $('#'+position[(pTurn-1)]).addClass("p"+pTurn+" p12"); }
-    else { $('#'+position[(pTurn-1)]).addClass("p"+pTurn); }
-}
+    else { 
+        $('#'+position[(pTurn-1)]).addClass("p"+pTurn); 
+        $('#'+position[(pTurn-1)]).css('background-position', '-200px 10px');
+        if(activityType=="ladder"||activityType=="snake"){
+            $('#'+position[(pTurn-1)]).delay(4000).animate({'background-position-x': '+=240%'}, 2000);
+            }
+        else { $('#'+position[(pTurn-1)]).delay(1200).animate({'background-position-x': '+=240%'}, 2000);
+            }
+        }
+
+    function direction(position, activityType){
+        if((position>=11&&position<=20)||(position>=31&&position<=40)||(position>=51&&position<=60)||(position>=71&&position<=80)||(position>=91&&position<=100)) {
+            return "left";
+        }
+        if((position>=1&&position<=10)||(position>=21&&position<=30)||(position>=41&&position<=50)||(position>=61&&position<=70)||(position>=81&&position<=90)) {
+            return "right";
+        }
+    }
+
+    }
 
 function checkActivity(result){
     var oldposition = position[(pTurn-1)];
     var mapping = {
-    1:38, 4:14, 9:31, 17:7, 21:42, 28:38, 51:67, 54:34, 62:19, 64:60, 71:91, 80:100, 87:24, 93:73, 95:75, 98:79 
+    1:38, 4:14, 9:31, 17:7, 21:42, 28:84, 51:67, 54:34, 62:19, 64:60, 71:91, 80:100, 87:24, 93:73, 95:75, 98:79 
     };
     if(mapping[oldposition]) {
     position[(pTurn-1)] = mapping[oldposition];
     if(position[(pTurn-1)]>oldposition) {
-    move(oldposition,"ladder");
+    move(oldposition,"ladder");  
     $('#activity').html('You climb up a ladder!');
     }
     else if(position[(pTurn-1)]<oldposition) {
