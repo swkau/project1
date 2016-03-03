@@ -1,3 +1,17 @@
+body {
+	background-image: url("../image/greybg.jpg");
+	background-size: 100% 100%;
+
+}
+
+.dice {
+	border-radius: 15px;
+}
+
+button {
+	border-radius: 15px;
+}
+
 #board {
 	float: left;
 	display: block;
@@ -33,6 +47,7 @@
 #info {
 	float: left;
 	display: block;
+	width: 48%;
 	margin-left: 15px;
 }
 
@@ -47,29 +62,47 @@
 	margin:5px;
 }
 
+#turn { 
+	margin-top:30px; 
+	margin-bottom:30px;
+}
+
 button {
 	font-size: 24px;
 }
 
 .p1 {
-	background-image: url("../image/button1.png");
+	background-image: url("../image/p1.png");
 	background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .p2 {
-	background-image: url("../image/button2.png");
+	background-image: url("../image/p2.png");
 	background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .p12 {
-	background-image: url("../image/buttoncombi.png");
+	background-image: url("../image/pcombi.png");
 	background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+#status {
+	color:white;
+}
 
+#activity {
+	color:white;
+
+#p1position {
+	color:white;
+}
+
+#p2position {
+	color:white;
+}
