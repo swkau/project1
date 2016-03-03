@@ -1,11 +1,13 @@
 body {
 	background-image: url("../image/greybg.jpg");
 	background-size: 100% 100%;
-
+	font-family: 'Roboto', sans-serif;
+	color: white;
 }
 
 .dice {
 	border-radius: 15px;
+	color: black;
 }
 
 button {
@@ -65,6 +67,7 @@ button {
 #turn { 
 	margin-top:30px; 
 	margin-bottom:30px;
+	color:white;
 }
 
 button {
@@ -92,17 +95,3 @@ button {
     background-position: center;
 }
 
-#status {
-	color:white;
-}
-
-#activity {
-	color:white;
-
-#p1position {
-	color:white;
-}
-
-#p2position {
-	color:white;
-}
