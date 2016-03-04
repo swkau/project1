@@ -169,7 +169,7 @@ function checkWinner(){
 if(position[0]>=100||position[1]>=100){
     delayedAlert();
     function delayedAlert() {
-    timeoutID = window.setTimeout(slowAlert, 4000);
+    timeoutID = window.setTimeout(slowAlert, 3000);
     }
     function slowAlert() {
     if(position[0]>=100){
