@@ -1,9 +1,44 @@
 $( document ).ready(function() {
 
+$("#instruction").show();
+$("#game").hide();
 var position = [0,0];
 var pTurn = 1;
 var sameTile = 0;
 var keepTurn = 0;
+
+$( "#start" ).click(function() {
+        $("#instruction").hide();
+        $("#game").show();
+});
+
+$( "#reset" ).click(function() {
+        $('#'+position[0]).removeClass("p1 p2 p12");
+        $('#'+position[1]).removeClass("p1 p2 p12");
+        $('#die1').text("0");
+        $('#die2').text("0");
+        position[0] = 0;
+        position[1] = 0;
+        pTurn = 1;
+        sameTile = 0;
+        keepTurn = 0;
+        oldposition = 0;
+        for(i=0; i<100; i++) {
+            $('#'+(i+1)).css({ "background-image": "",
+            "background-size": "40px 40px"
+        });
+        }
+        $('#'+position[0]).addClass("p1");
+        $('#'+position[1]).addClass("p2");
+        $('#meme').html('');
+        $('#turn').html('<img src="image/p1.png">Player 1 turn!');
+        $('#status').html('');
+        $('#activity').html('');
+        $('#p1position').html('');
+        $('#p2position').html('');
+        $("#instruction").show();
+        $("#game").hide();
+});
 
 $( "#roll" ).click(function() {
   var result = rollDice();
@@ -235,8 +270,10 @@ function artiLoc() {
             $('#status').append(' Player '+enemy+' drops '+dmg+' positions!');
             var oldposition = position[(enemy-1)];
             pTurn = enemy;
+            keepTurn = 1;
             calculate([(-dmg),0],"snake");
         }
+        else { $('#status').html('Artillery Barrage missed the target!'); }
     }
 
     function clearBoard() {

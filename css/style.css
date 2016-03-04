@@ -74,6 +74,10 @@ button {
 	font-size: 24px;
 }
 
+#reset {
+	margin-top: 20px;
+}
+
 .p1 {
 	background-image: url("../image/p1.png");
 	background-size: 40px 40px;
